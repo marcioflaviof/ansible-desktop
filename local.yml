@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+    user: "mf"
+  pre_tasks:
+    - name: Update Apt
+      become: true
+      apt:
+        force_apt_get: true
+        update_cache: true
+        state: present
+      tags:
+        - install
+        - core
+  tasks:
+    - include: tasks/core-setup.yml
+    - include: tasks/vscode.yml
+    - include: tasks/docker.yml
+    - include: tasks/fish.yml
+    - include: tasks/slack-setup.yml
+    - include: tasks/spotify.yml

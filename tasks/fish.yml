@@ -1,0 +1,55 @@
+- name: Install Fish
+  apt: name=fish
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
+
+- name: Change shell to Fish
+  shell: chsh -s $(which fish)
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
+
+- name: Creating config file
+  file:
+    path: "~/.config/fish"
+    state: directory
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
+
+- name: Removing greeting message
+  copy:
+    dest: "~/.config/fish/config.fish"
+    content: |
+      set -g -x fish_greeting ''
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
+
+- name: Installing starship theme
+  shell: curl -fsSL https://starship.rs/install.sh
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
+
+- name: Add starship
+  lineinfile:
+    path: ~/.config/fish/config.fish
+    line: "starship init fish | source"
+    insertbefore: EOF
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
