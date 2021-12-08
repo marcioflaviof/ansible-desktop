@@ -2,7 +2,9 @@
   connection: local
   become: true
   vars:
-    user: "mf"
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
     - name: Update Apt
       become: true
@@ -15,6 +17,8 @@
         - core
   tasks:
     - include: tasks/core-setup.yml
+    - include: tasks/nvim-setup.yml
+    - include: tasks/ssh.yml
     - include: tasks/vscode.yml
     - include: tasks/docker.yml
     - include: tasks/fish.yml

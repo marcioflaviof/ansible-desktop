@@ -1,12 +1,24 @@
-## Prepare worstation
+## This ansible was made to help me set up my work environment after get a new machine.
+
+## To try yourself:
+
+### Prepare workstation
 
 1. Install Ansible
    a. Debian based distros
    `sudo apt update && sudo apt install ansible unzip git -y`
-   b. Arch based distros
-   `pacman -S ansible git unzip`
 
 2. Clone this repo
 
 3. Apply the config
-   `ansible-playbook local.yml`
+   `ansible-playbook -t install local.yml`
+
+## If you want to try in a docker container:
+
+run
+
+1. `docker build -t test-computer .`
+   <br>
+2. `docker run --rm -it nvim-computer bash`
+   <br>
+3. `ansible-playbook -t install local.yml`
