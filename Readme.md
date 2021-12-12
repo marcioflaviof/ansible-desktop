@@ -19,6 +19,6 @@ run
 
 1. `docker build -t test-computer .`
    <br>
-2. `docker run --rm -it nvim-computer bash`
+2. `docker run --rm -it test-computer bash`
    <br>
-3. `ansible-playbook -t install local.yml`
+3. `ansible-playbook -t install local.yml --ask-vault-pass`
