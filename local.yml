@@ -17,10 +17,11 @@
         - core
   tasks:
     - include: tasks/core-setup.yml
-    - include: tasks/nvim-setup.yml
-    - include: tasks/ssh.yml
-    - include: tasks/vscode.yml
-    - include: tasks/docker.yml
     - include: tasks/fish.yml
-    - include: tasks/slack-setup.yml
-    - include: tasks/spotify.yml
+    - include: tasks/asdf.yml
+    # - include: tasks/nvim-setup.yml
+    # - include: tasks/ssh.yml
+    # - include: tasks/vscode.yml
+    # - include: tasks/docker.yml
+    # - include: tasks/slack-setup.yml
+    # - include: tasks/spotify.yml
