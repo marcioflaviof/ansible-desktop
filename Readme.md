@@ -21,4 +21,6 @@ run
    <br>
 2. `docker run --rm -it test-computer bash`
    <br>
-3. `ansible-playbook -t install local.yml --ask-vault-pass`
+3. `ansible-galaxy install -r requirements.yml`
+   <br>
+4. `ansible-playbook -t install local.yml --ask-vault-pass`

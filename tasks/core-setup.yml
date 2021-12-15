@@ -39,3 +39,28 @@
     - install
     - docker
     - core
+
+- name: Install asdf dependencies
+  apt:
+    name: ["unzip", "git", "autoconf", "automake", "gcc",
+  "g++", "make", "patch", "pkg-config", "binutils", "libtool", "bison", "libreadline-dev"]
+  tags:
+    - install
+    - core
+    - asdf
+
+- name: Install node dependencies
+  apt:
+    name: ["gpg", "dirmngr"]
+  tags:
+    - install
+    - core
+    - asdf
+
+- name: Install ruby dependencies
+  apt:
+    name: ["libssl-dev", "libyaml-dev", "zlib1g-dev", "libncurses5-dev", "libffi-dev"]
+  tags:
+    - install
+    - core
+    - asdf
