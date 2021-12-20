@@ -36,7 +36,7 @@
     - fish
 
 - name: Copying starship theme to file
-  shell: curl -fsSL https://starship.rs/install.sh -o ~/starship
+  shell: curl -o starship.sh https://starship.rs/install.sh
   tags:
     - install
     - fish
@@ -44,7 +44,7 @@
 
 - name: Setting permission for file to execute
   file:
-    dest: ~/starship
+    dest: ./starship.sh
     mode: +x
   tags:
     - install
@@ -52,7 +52,7 @@
     - starship
 
 - name: Execute and accept starship theme file
-  script: ~/starship -y
+  script: ./starship.sh -y
   tags:
     - install
     - fish
@@ -61,9 +61,10 @@
 - name: Remove starship file
   file:
     state: absent
-    path: ~/starship
+    path: ./starship.sh
   tags:
     - install
+    - starship
     - fish
 
 - name: Add starship to fish
