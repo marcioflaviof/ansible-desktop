@@ -22,6 +22,8 @@
   tags:
     - install
     - core
+    - fish
+    - starship
 
 - name: Install Docker Dependencies
   apt: name={{ item }} state=latest update_cache=yes

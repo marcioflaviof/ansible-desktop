@@ -1,12 +1,3 @@
-- name: Clone asdf
-  ansible.builtin.git:
-    repo: "https://github.com/asdf-vm/asdf.git"
-    dest: "{{ lookup('env', 'HOME') }}/.asdf"
-    version: v0.8.1
-  tags:
-    - install
-    - asdf
-
 - name: Add asdf to fish
   lineinfile:
     path: ~/.config/fish/config.fish

@@ -35,21 +35,43 @@
     - dotfiles
     - fish
 
-- name: Installing starship theme
-  shell: curl -fsSL https://starship.rs/install.sh
+- name: Copying starship theme to file
+  shell: curl -fsSL https://starship.rs/install.sh -o ~/starship
   tags:
     - install
-    - productivity
-    - dotfiles
+    - fish
+    - starship
+
+- name: Setting permission for file to execute
+  file:
+    dest: ~/starship
+    mode: +x
+  tags:
+    - install
+    - fish
+    - starship
+
+- name: Execute and accept starship theme file
+  script: ~/starship -y
+  tags:
+    - install
+    - fish
+    - starship
+
+- name: Remove starship file
+  file:
+    state: absent
+    path: ~/starship
+  tags:
+    - install
     - fish
 
-- name: Add starship
+- name: Add starship to fish
   lineinfile:
     path: ~/.config/fish/config.fish
     line: "starship init fish | source"
-    insertbefore: EOF
   tags:
     - install
-    - productivity
-    - dotfiles
     - fish
+    - dotfiles
+    - starship
