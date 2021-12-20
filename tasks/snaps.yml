@@ -1,5 +1,5 @@
 - name: Install Spotify
-  community.general.snap:
+  snap:
     name: spotify
     channel: latest/stable
   tags:
@@ -8,7 +8,7 @@
     - snap
 
 - name: Install Notepad++
-  community.general.snap:
+  snap:
     name: notepad-plus-plus
     channel: latest/stable
   tags:
@@ -17,7 +17,7 @@
     - snap
 
 - name: Install Discord
-  community.general.snap:
+  snap:
     name: discord
     channel: latest/stable
   tags:
@@ -26,7 +26,7 @@
     - snap
 
 - name: Install Telegram
-  community.general.snap:
+  snap:
     name: telegram-desktop
     channel: latest/stable
   tags:
