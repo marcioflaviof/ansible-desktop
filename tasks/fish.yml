@@ -28,10 +28,11 @@
   file:
     path: "~/.config/fish/init.fish"
     state: touch
-  - install
-  - productivity
-  - dotfiles
-  - fish
+  tags:
+    - install
+    - productivity
+    - dotfiles
+    - fish
 
 - name: Removing greeting message
   copy:
