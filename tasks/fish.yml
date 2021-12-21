@@ -14,7 +14,7 @@
     - dotfiles
     - fish
 
-- name: Creating config file
+- name: Creating config directory
   file:
     path: "~/.config/fish"
     state: directory
@@ -23,6 +23,15 @@
     - productivity
     - dotfiles
     - fish
+
+- name: Creating config file
+  file:
+    path: "~/.config/fish/init.fish"
+    state: touch
+  - install
+  - productivity
+  - dotfiles
+  - fish
 
 - name: Removing greeting message
   copy:
