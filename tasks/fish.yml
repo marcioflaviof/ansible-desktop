@@ -16,7 +16,7 @@
 
 - name: Creating config directory
   file:
-    path: "~/.config/fish"
+    path: "{{ lookup('env', 'HOME') }}/.config/fish"
     state: directory
   tags:
     - install
@@ -26,7 +26,7 @@
 
 - name: Creating config file
   file:
-    path: "~/.config/fish/init.fish"
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/init.fish"
     state: touch
   tags:
     - install
@@ -36,7 +36,7 @@
 
 - name: Removing greeting message
   copy:
-    dest: "~/.config/fish/config.fish"
+    dest: "{{ lookup('env', 'HOME') }}/.config/fish/config.fish"
     content: |
       set -g -x fish_greeting ''
   tags:
@@ -79,7 +79,7 @@
 
 - name: Add starship to fish
   lineinfile:
-    path: ~/.config/fish/config.fish
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/config.fish"
     line: "starship init fish | source"
   tags:
     - install
