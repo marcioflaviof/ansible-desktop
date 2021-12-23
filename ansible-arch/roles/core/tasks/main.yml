@@ -24,3 +24,11 @@
     #    - core
     #    - snap
 
+    #- name: Install yay
+    #  pacman:
+    #    name: yay
+    #  tags:
+    #    - install
+    #    - core
+    #    - yay
+    #

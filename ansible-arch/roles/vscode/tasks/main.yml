@@ -1,0 +1,8 @@
+- name: Install vscode
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - visual-studio-code-bin
+  tags:
+    - install
+    - vscode

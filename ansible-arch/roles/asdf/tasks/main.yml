@@ -1,0 +1,28 @@
+- name: Install asdf
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - asdf
+  tags:
+    - install
+    - asdf
+
+- name: Install node plugin
+  shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  tags:
+    - install
+    - asdf
+
+- name: Install node lts
+  shell: asdf install nodejs lts
+  tags:
+    - install
+    - asdf
+
+- name: Add asdf to fish
+  lineinfile:
+    path: ~/.config/fish/config.fish
+    line: "source ~/.asdf/asdf.fish"
+  tags:
+    - install
+    - asdf
