@@ -1,12 +1,12 @@
 - name: Install asdf
-  kewlfft.aur.aur:
-    use: yay
-    name:
-      - asdf
-  become_user: aur_builder
+  ansible.builtin.git:
+    repo: "https://github.com/asdf-vm/asdf.git"
+    dest: "{{ lookup('env', 'HOME') }}/.asdf"
+    single_branch: yes
+    version: v0.8.1
   tags:
     - install
-    - asdf
+    - neovim
 
 - name: Add asdf to fish
   lineinfile:
@@ -19,15 +19,15 @@
 - name: Add asdf to bash
   lineinfile:
     path: "{{ lookup('env', 'HOME') }}/.bashrc"
-    line: ". /opt/asdf-vm/asdf.sh"
+    line: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh"
   tags:
     - install
     - asdf
 
-- name: Add asdf to bash
+- name: Add asdf to zsh
   lineinfile:
     path: "{{ lookup('env', 'HOME') }}/.zshrc"
-    line: ". /opt/asdf-vm/asdf.sh"
+    line: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh"
   tags:
     - install
     - asdf

@@ -35,6 +35,16 @@
     - fish
 
 
+- name: Add starship to fish
+  lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/config.fish"
+    line: "starship init fish | source"
+  tags:
+    - install
+    - fish
+    - dotfiles
+    - starship
+
 - name: Copying starship theme to file
   shell: curl -o starship.sh https://starship.rs/install.sh
   tags:
@@ -66,14 +76,3 @@
     - install
     - starship
     - fish
-
-- name: Add starship to fish
-  lineinfile:
-    path: "{{ lookup('env', 'HOME') }}/.config/fish/config.fish"
-    line: "starship init fish | source"
-  tags:
-    - install
-    - fish
-    - dotfiles
-    - starship
-
