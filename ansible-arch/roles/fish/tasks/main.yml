@@ -17,6 +17,9 @@
   file:
     path: "{{ lookup('env', 'HOME') }}/.config/fish"
     state: directory
+    owner: {{ lookup('env', 'USER' )}}
+    group: {{ lookup('env', 'USER' )}}
+    mode: '0644'
   tags:
     - install
     - productivity
