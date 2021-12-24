@@ -4,8 +4,7 @@
 
 ### Prepare workstation
 
-1. Install Ansible
-   a. Debian based distros
+1. Install Ansible for Debian based distros
    `sudo apt update && sudo apt install ansible unzip git -y`
 
 2. Clone this repo
@@ -26,3 +25,4 @@ run
 3. `ansible-galaxy install -r requirements.yml`
    <br>
 4. `ansible-playbook -t install local.yml --ask-vault-pass`
+

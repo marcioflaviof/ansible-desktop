@@ -3,13 +3,14 @@
     use: yay
     name:
       - asdf
+  become_user: aur_builder
   tags:
     - install
     - asdf
 
 - name: Add asdf to fish
   lineinfile:
-    path: ~/.config/fish/config.fish
+    path: "{{ lookup('env', 'HOME') }}/.config/fish/config.fish"
     line: "source ~/.asdf/asdf.fish"
   tags:
     - install
@@ -17,7 +18,7 @@
 
 - name: Add asdf to bash
   lineinfile:
-    path: ~/.bashrc
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: ". /opt/asdf-vm/asdf.sh"
   tags:
     - install
