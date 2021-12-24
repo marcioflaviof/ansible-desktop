@@ -1,0 +1,6 @@
+- name: Install dbeaver
+  pacman:
+    name: dbeaver
+  tags:
+    - install
+    - others
