@@ -7,6 +7,22 @@
     - install
     - asdf
 
+- name: Add asdf to fish
+  lineinfile:
+    path: ~/.config/fish/config.fish
+    line: "source ~/.asdf/asdf.fish"
+  tags:
+    - install
+    - asdf
+
+- name: Add asdf to bash
+  lineinfile:
+    path: ~/.bashrc
+    line: ". /opt/asdf-vm/asdf.sh"
+  tags:
+    - install
+    - asdf
+
 - name: Install node plugin
   shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   tags:
@@ -19,10 +35,32 @@
     - install
     - asdf
 
-- name: Add asdf to fish
-  lineinfile:
-    path: ~/.config/fish/config.fish
-    line: "source ~/.asdf/asdf.fish"
+- name: Setting node lts global
+  shell: asdf install nodejs lts
+  tags:
+    - install
+    - asdf
+
+- name: Install ruby plugin
+  shell: asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  tags:
+    - install
+    - asdf
+
+- name: Install ruby 2.5.1
+  shell: asdf install ruby 2.5.1
+  tags:
+    - install
+    - asdf
+
+- name: Install ruby 3.0.2
+  shell: asdf install ruby 2.5.1
+  tags:
+    - install
+    - asdf
+
+- name: Setting ruby 3.0.2 global
+  shell: asdf global ruby 3.0.2
   tags:
     - install
     - asdf

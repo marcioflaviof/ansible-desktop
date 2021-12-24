@@ -6,29 +6,29 @@
     - install
     - core
 
-    #- name: Install snap
-    #  pacman:
-    #    name: snapd
-    #  tags:
-    #    - install
-    #    - core
-    #    - snapd
-    #
-    #- name: Enable snaps
-    #  systemd:
-    #    name: snapd
-    #    state: started
-    #    enabled: yes
-    #  tags:
-    #    - install
-    #    - core
-    #    - snap
+- name: Install snap
+  pacman:
+    name: snapd
+  tags:
+    - install
+    - core
+    - snapd
 
-    #- name: Install yay
-    #  pacman:
-    #    name: yay
-    #  tags:
-    #    - install
-    #    - core
-    #    - yay
-    #
+- name: Enable snaps
+  systemd:
+    name: snapd
+    state: started
+    enabled: yes
+  tags:
+    - install
+    - core
+    - snap
+
+- name: Install yay
+  pacman:
+    name: yay
+  tags:
+    - install
+    - core
+    - yay
+    
