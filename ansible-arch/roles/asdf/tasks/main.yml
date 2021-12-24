@@ -24,6 +24,14 @@
     - install
     - asdf
 
+- name: Add asdf to bash
+  lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
+    line: ". /opt/asdf-vm/asdf.sh"
+  tags:
+    - install
+    - asdf
+
 - name: Install node plugin
   shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   tags:
