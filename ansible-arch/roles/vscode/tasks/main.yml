@@ -3,6 +3,7 @@
     use: yay
     name:
       - visual-studio-code-bin
+  become_user: aur_builder
   tags:
     - install
     - vscode
