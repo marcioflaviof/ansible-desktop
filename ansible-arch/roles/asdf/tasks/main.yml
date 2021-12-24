@@ -6,7 +6,15 @@
     version: v0.8.1
   tags:
     - install
-    - neovim
+    - asdf
+
+- name: Grant asdf file permissions
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.asdf"
+    mode: u=rwx, g=rwx, o=rwx
+  tags:
+    - install
+    - asdf
 
 - name: Add asdf to fish
   lineinfile:
