@@ -1,7 +1,8 @@
 - name: Install Core
   pacman: 
     name: [git, the_silver_searcher, fzf, unzip, ttf-fira-code, tilix, base-devel,
-       flameshot, wget, libffi, libyaml, openssl, zlib, python, gcc, make, python-pip]
+    flameshot, wget, libffi, libyaml, openssl, zlib, python, gcc, make, python-pip,
+    ripgrep]
   tags: 
     - install
     - core
