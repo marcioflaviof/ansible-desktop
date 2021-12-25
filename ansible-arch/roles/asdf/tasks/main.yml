@@ -11,15 +11,20 @@
 - name: Grant asdf file permissions
   file:
     path: "{{ lookup('env', 'HOME') }}/.asdf"
+    owner: root
     mode: 777
   tags:
     - install
     - asdf
 
-- name: Install asdf plugins
-  asdf_plugins:
-    - name: "nodejs"
-      versions: ["lts", "17.2.0"]
-      global: "lts"
-    - name: "ruby"
-      versions: ["2.5.1", "3.0.2"]
+- name: Install asdf ruby plugin
+  shell: asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  tags:
+    - plugins
+    - asdf
+
+- name: Install asdf node plugin
+  shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  tags:
+    - plugins
+    - asdf

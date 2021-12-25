@@ -1,5 +1,2 @@
 collections:
   - name: kewlfft.aur
-
-roles:
-  - name: cimon-io.asdf
