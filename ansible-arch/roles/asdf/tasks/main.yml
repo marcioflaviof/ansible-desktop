@@ -4,27 +4,43 @@
     dest: "{{ lookup('env', 'HOME') }}/.asdf"
     single_branch: yes
     version: v0.8.1
-  tags:
-    - install
-    - asdf
-
-- name: Grant asdf file permissions
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.asdf"
-    owner: root
-    mode: 777
+  become_user: "{{ ansible_user_id }}"
   tags:
     - install
     - asdf
 
 - name: Install asdf ruby plugin
-  shell: asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  shell: sh -c asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   tags:
     - plugins
     - asdf
 
-- name: Install asdf node plugin
-  shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+- name: Install asdf nodejs plugin
+  shell: sh -c asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  tags:
+    - plugins
+    - asdf
+
+- name: Install nodejs lts
+  shell: asdf install nodejs lts
+  tags:
+    - plugins
+    - asdf
+
+- name: Set nodejs lts global
+  shell: asdf global nodejs lts
+  tags:
+    - plugins
+    - asdf
+
+- name: Install ruby 2.5.1
+  shell: asdf install ruby 2.5.1
+  tags:
+    - plugins
+    - asdf
+
+- name: Set ruby 2.5.1 global
+  shell: asdf global ruby 2.5.1
   tags:
     - plugins
     - asdf
