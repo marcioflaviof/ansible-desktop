@@ -1,6 +1,7 @@
 - name: Install stow
   pacman:
     name: stow
+  tags:
     - install
     - stow
 
