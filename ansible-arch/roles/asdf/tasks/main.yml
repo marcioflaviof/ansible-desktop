@@ -9,38 +9,54 @@
     - install
     - asdf
 
-- name: Install asdf ruby plugin
-  shell: sh -c asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+- name: check if nodejs plugin installed
+  shell: asdf list | grep nodejs
+  register: nodejs_plugin_exists
+  ignore_errors: true
   tags:
-    - plugins
     - asdf
+    - nodejs
 
-- name: Install asdf nodejs plugin
-  shell: sh -c asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+- name: install nodejs plugin for asdf
+  shell: asdf plugin-add nodejs
+  when: nodejs_plugin_exists is not successful
   tags:
-    - plugins
     - asdf
+    - nodejs
 
-- name: Install nodejs lts
-  shell: asdf install nodejs lts
+- name: import pgp keys
+  shell: bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  when: nodejs_plugin_exists is not successful
   tags:
-    - plugins
     - asdf
+    - nodejs
 
-- name: Set nodejs lts global
-  shell: asdf global nodejs lts
+- name: check installed nodejs version
+  shell: "asdf list nodejs | grep {{ nodejs_version }}"
+  register: nodejs_version_exists
+  ignore_errors: true
   tags:
-    - plugins
     - asdf
+    - nodejs
 
-- name: Install ruby 2.5.1
-  shell: asdf install ruby 2.5.1
+- name: install nodejs
+  shell: "asdf install nodejs {{ nodejs_version }}"
+  register: nodejs_installed
+  when: nodejs_version_exists is not successful
   tags:
-    - plugins
     - asdf
+    - nodejs
 
-- name: Set ruby 2.5.1 global
-  shell: asdf global ruby 2.5.1
+- name: set global nodejs version
+  shell: "asdf global nodejs {{ nodejs_version }}"
+  when: nodejs_version_exists is successful or nodejs_installed is successful
   tags:
-    - plugins
     - asdf
+    - nodejs
+
+- name: reshim nodejs
+  shell: asdf reshim nodejs
+  when: nodejs_version_exists is successful or nodejs_installed is successful
+  tags:
+    - asdf
+    - nodejs
