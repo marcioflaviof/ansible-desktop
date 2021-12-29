@@ -10,6 +10,11 @@
     - install
     - asdf
 
+- name: Source bash profile
+  shell: source $HOME/.bash_profile
+  tags:
+    - asdf
+
 - include: nodejs.yml
   tags:
     - asdf
