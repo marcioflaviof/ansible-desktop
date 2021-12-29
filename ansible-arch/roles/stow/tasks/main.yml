@@ -7,20 +7,24 @@
 
 - name: Clone dotfiles
   ansible.builtin.git:
-    repo: 'https://github.com/marcioflaviof/.dotfiles.git'
+    repo: "https://github.com/marcioflaviof/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+  become_user: "{{ ansible_user_id }}"
   tags:
     - install
     - stow
 
-- name: Remove zshrc and bashrc
-  shell: "rm -rf ~/.zshrc ~/.bashrc"
-  tags:
-    - stow
+- name: Remove zshrc
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
+
+- name: Remove bashrc
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
 
 - name: Stow!
-  shell: "cd ~/.dotfiles && stow ."
+  shell: "cd {{ lookup('env', 'HOME') }}/.dotfiles && stow ."
   tags:
     - stow
-
-
