@@ -11,7 +11,7 @@
     - asdf
 
 - name: Source bash profile
-  shell: source $HOME/.bash_profile
+  shell: source $HOME/.bash_profile $HOME/.bashrc
   tags:
     - asdf
 
