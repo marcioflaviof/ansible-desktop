@@ -4,10 +4,10 @@
     name: stow
 
 - name: Clone dotfiles
+  become: false
   ansible.builtin.git:
     repo: "https://github.com/marcioflaviof/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
-  become_user: "{{ ansible_user_id }}"
 
 - name: Remove zshrc
   file:
@@ -20,4 +20,5 @@
     path: "{{ lookup('env', 'HOME') }}/.bashrc"
 
 - name: Stow!
+  become: false
   shell: "cd {{ lookup('env', 'HOME') }}/.dotfiles && stow ."
