@@ -33,6 +33,7 @@
 
   roles:
     - core
+    - { role: ssh, tags: ssh }
     - docker
     - neovim
     - git-setup

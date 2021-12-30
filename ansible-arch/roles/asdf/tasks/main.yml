@@ -4,8 +4,7 @@
     repo: "https://github.com/asdf-vm/asdf.git"
     dest: "{{ lookup('env', 'HOME') }}/.asdf"
     single_branch: yes
-    version: v0.8.1
-  become_user: "{{ ansible_user_id }}"
+    version: "{{ asdf_version }}"
   tags:
     - install
     - asdf
