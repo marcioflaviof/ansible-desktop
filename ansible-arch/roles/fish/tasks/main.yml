@@ -10,15 +10,6 @@
 - name: Copying starship theme to file
   shell: curl -o starship.sh https://starship.rs/install.sh
 
-# - name: Setting permission for file to execute
-#   file:
-#     dest: ./starship.sh
-#     mode: +x
-#   tags:
-#     - install
-#     - fish
-#     - starship
-
 - name: Execute and accept starship theme file
   script: ./starship.sh -y
 

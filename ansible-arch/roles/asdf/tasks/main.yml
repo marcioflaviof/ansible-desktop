@@ -6,8 +6,11 @@
     version: "{{ asdf_version }}"
 
 - name: Source bash profile
-  shell: source $HOME/.bash_profile $HOME/.bashrc $HOME/.zshrc
+  shell: "source {{ lookup('env', 'HOME') }}/.bashrc"
 
-- include: nodejs.yml
+- name: Source zsh profile
+  shell: "source {{ lookup('env', 'HOME') }}/.zshrc"
 
-- include: ruby.yml
+- include_tasks: nodejs.yml
+
+- include_tasks: ruby.yml
