@@ -35,7 +35,7 @@
     - { role: ssh, tags: ssh }
     - { role: docker, tags: docker }
     - { role: neovim, tags: neovim }
-    - { role: git, tags: git }
+    - { role: git-setup, tags: git }
     - { role: fish, tags: fish }
     - { role: vscode, tags: vscode }
     - { role: stow, tags: stow }
