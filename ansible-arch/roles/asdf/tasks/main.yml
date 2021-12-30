@@ -6,7 +6,7 @@
     version: "{{ asdf_version }}"
 
 - name: Source bash profile
-  shell: "source {{ lookup('env', 'HOME') }}/.bashrc"
+  shell: ./scripts/source_shell.sh
 
 - name: Source zsh profile
   shell: "source {{ lookup('env', 'HOME') }}/.zshrc"

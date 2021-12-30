@@ -4,25 +4,12 @@
 
 ### Prepare workstation
 
-1. Install Ansible for Debian based distros
+1. Install Ansible for Manjaro
    `sudo pacman -Syyu --noconfirm && sudo pacman -S ansible unzip git --noconfirm`
 
-2. Change to ansible-arch
+2. Change to ansible-manjaro
 
 3. `ansible-galaxy install -r requirements.yml`
 
 4. Apply the config
    `ansible-playbook local.yml --ask-become-pass --ask-vault-pass`
-
-## If you want to try in a docker container:
-
-run
-
-1. `docker build -t test-computer .`
-   <br>
-2. `docker run --rm -it test-computer bash`
-   <br>
-3. `ansible-galaxy install -r requirements.yml`
-   <br>
-4. `ansible-playbook local.yml`
-
