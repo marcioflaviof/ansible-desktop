@@ -5,11 +5,8 @@
     single_branch: yes
     version: "{{ asdf_version }}"
 
-- name: Source bash profile
+- name: Source bash
   shell: ./scripts/source_shell.sh
-
-- name: Source zsh profile
-  shell: "source {{ lookup('env', 'HOME') }}/.zshrc"
 
 - include_tasks: nodejs.yml
 
