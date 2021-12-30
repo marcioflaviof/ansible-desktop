@@ -8,7 +8,6 @@
 
   pre_tasks:
     - name: Update Pacman
-      become: true
       pacman:
         update_cache: true
         upgrade: true
@@ -32,12 +31,12 @@
         validate: 'visudo -cf %s'
 
   roles:
-    - core
+    - { role: core, tags: core }
     - { role: ssh, tags: ssh }
-    - docker
-    - neovim
-    - git-setup
-    - fish
-    - vscode
-    - stow
-    - asdf
+    - { role: docker, tags: docker }
+    - { role: neovim, tags: neovim }
+    - { role: git, tags: git }
+    - { role: fish, tags: fish }
+    - { role: vscode, tags: vscode }
+    - { role: stow, tags: stow }
+    - { role: asdf, tags: asdf }

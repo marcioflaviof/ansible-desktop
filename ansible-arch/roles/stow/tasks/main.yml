@@ -1,18 +1,13 @@
 - name: Install stow
+  become: true
   pacman:
     name: stow
-  tags:
-    - install
-    - stow
 
 - name: Clone dotfiles
   ansible.builtin.git:
     repo: "https://github.com/marcioflaviof/.dotfiles.git"
     dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
   become_user: "{{ ansible_user_id }}"
-  tags:
-    - install
-    - stow
 
 - name: Remove zshrc
   file:
@@ -26,5 +21,3 @@
 
 - name: Stow!
   shell: "cd {{ lookup('env', 'HOME') }}/.dotfiles && stow ."
-  tags:
-    - stow

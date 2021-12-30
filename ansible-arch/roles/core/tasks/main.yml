@@ -1,35 +1,24 @@
 - name: Install Core
+  become: true
   pacman: 
     name: [git, the_silver_searcher, fzf, unzip, ttf-fira-code, tilix, base-devel,
     flameshot, wget, libffi, libyaml, openssl, zlib, python, gcc, make, python-pip,
     ripgrep, cmake]
-  tags: 
-    - install
-    - core
 
 - name: Install snap
+  become: true
   pacman:
     name: snapd
-  tags:
-    - install
-    - core
-    - snapd
 
 - name: Enable snaps
+  become: true
   systemd:
     name: snapd
     state: started
     enabled: yes
-  tags:
-    - install
-    - core
-    - snap
 
 - name: Install yay
+  become: true
   pacman:
     name: yay
-  tags:
-    - install
-    - core
-    - yay
     

@@ -1,25 +1,13 @@
 - name: Install asdf
-  become: false
   ansible.builtin.git:
     repo: "https://github.com/asdf-vm/asdf.git"
     dest: "{{ lookup('env', 'HOME') }}/.asdf"
     single_branch: yes
     version: "{{ asdf_version }}"
-  tags:
-    - install
-    - asdf
 
 - name: Source bash profile
-  shell: source $HOME/.bash_profile $HOME/.bashrc
-  tags:
-    - asdf
+  shell: source $HOME/.bash_profile $HOME/.bashrc $HOME/.zshrc
 
 - include: nodejs.yml
-  tags:
-    - asdf
-    - node
 
 - include: ruby.yml
-  tags:
-    - asdf
-    - ruby
