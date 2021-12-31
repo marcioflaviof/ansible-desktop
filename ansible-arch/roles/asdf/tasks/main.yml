@@ -5,9 +5,6 @@
     single_branch: yes
     version: "{{ asdf_version }}"
 
-- name: Source bash
-  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && . {{ lookup('env', 'HOME') }}/.asdf/asdf.fish"
-
 - include_tasks: nodejs.yml
 
 - include_tasks: ruby.yml
