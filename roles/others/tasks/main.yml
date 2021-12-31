@@ -1,3 +1,10 @@
 - name: Install dbeaver
+  become: true
   pacman:
     name: dbeaver
+
+- name: Remove firefox default manjaro theme
+  become: true
+  pacman:
+    name: firefox-gnome-theme-maia
+    state: absent

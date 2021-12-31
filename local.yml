@@ -33,10 +33,11 @@
   roles:
     - { role: core, tags: core }
     - { role: ssh, tags: ssh }
-    - { role: docker, tags: docker }
     - { role: neovim, tags: neovim }
     - { role: git-setup, tags: git }
     - { role: fish, tags: fish }
-    - { role: vscode, tags: vscode }
     - { role: stow, tags: stow }
     - { role: asdf, tags: asdf }
+    - { role: docker, tags: docker }
+    - { role: snaps, tags: snaps }
+    - { role: vscode, tags: vscode }
