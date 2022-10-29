@@ -4,14 +4,12 @@
 
 ### Prepare workstation
 
-1. Change to bash
-
 2. Install Ansible for Manjaro
    `sudo pacman -Syyu --noconfirm && sudo pacman -S ansible unzip git --noconfirm`
 
-3. Change to ansible-manjaro
+3. `cd ansible-desktop`
 
 4. `ansible-galaxy install -r requirements.yml`
 
 5. Apply the config
-   `ansible-playbook local.yml --ask-become-pass --ask-vault-pass`
+   `ansible-playbook local.yml --ask-become-pass`
