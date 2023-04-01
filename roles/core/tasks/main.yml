@@ -1,9 +1,8 @@
 - name: Install Core
   become: true
   pacman: 
-    name: [git, the_silver_searcher, fzf, unzip, ttf-fira-code, tilix, base-devel,
-    flameshot, wget, libffi, libyaml, openssl, zlib, python, gcc, make, python-pip,
-    ripgrep, cmake]
+    name: [git, the_silver_searcher, fzf, unzip, ttf-fira-code, ttf-jetbrains-mono, kitty, zellij, base-devel,
+    flameshot, wget, libffi, libyaml, openssl, zlib, python, gcc, make, python-pip, neovim, ripgrep, cmake]
 
 - name: Install snap
   become: true

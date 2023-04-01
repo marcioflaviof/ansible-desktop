@@ -1,3 +1,4 @@
-asdf_version: 'v0.8.1'
-nodejs_version: 'lts'
-ruby_version: '3.0.2'
+asdf_version: "v0.11.3"
+nodejs_version: "lts"
+ruby_version: "3.2.1"
+lua_version: "5.4.4"

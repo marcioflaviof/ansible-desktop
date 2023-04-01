@@ -38,3 +38,4 @@
     - { role: docker, tags: docker }
     - { role: snaps, tags: snaps }
     - { role: vscode, tags: vscode }
+    - { role: yay, tags: yay }

@@ -1,0 +1,6 @@
+- name: Install microsoft edge
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - microsoft-edge-stable-bin

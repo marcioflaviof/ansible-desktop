@@ -4,12 +4,6 @@
     name: spotify
     channel: latest/stable
 
-- name: Install Notepad++
-  become: true
-  snap:
-    name: notepad-plus-plus
-    channel: latest/stable
-
 - name: Install Discord
   become: true
   snap:
@@ -21,4 +15,3 @@
   snap:
     name: telegram-desktop
     channel: latest/stable
-
