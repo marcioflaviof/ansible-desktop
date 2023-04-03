@@ -1,0 +1,32 @@
+- name: check if lua plugin is installed
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf list | grep lua"
+  register: lua_plugin_exists
+  ignore_errors: true
+
+- name: install lua plugin for asdf
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf plugin-add lua"
+  when: lua_plugin_exists is not successful
+
+- name: check installed lua version
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf list lua | grep {{ lua_version }}"
+  register: lua_version_exists
+  ignore_errors: true
+
+- name: install lua
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf install lua {{ lua_version }}"
+  register: lua_installed
+  when: lua_version_exists is not successful
+
+- name: set global lua version
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf global lua {{ lua_version }}"
+  when: lua_version_exists is successful or lua_installed is successful
+
+- name: reshim lua
+  become: false
+  shell: ". {{ lookup('env', 'HOME') }}/.asdf/asdf.sh && asdf reshim lua"
+  when: lua_version_exists is successful or lua_installed is successful

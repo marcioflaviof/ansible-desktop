@@ -30,7 +30,6 @@
 
   roles:
     - { role: core, tags: core }
-    - { role: neovim, tags: neovim }
     - { role: git-setup, tags: git }
     - { role: fish, tags: fish }
     - { role: stow, tags: stow }

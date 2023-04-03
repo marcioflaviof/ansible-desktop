@@ -1,10 +1,19 @@
-- name: Install dbeaver
-  become: true
-  pacman:
-    name: dbeaver
-
 - name: Remove firefox default manjaro theme
   become: true
   pacman:
     name: firefox-gnome-theme-maia
     state: absent
+
+- name: Install autojump
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - autojump
+
+- name: Install edge
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - microsoft-edge-stable-bin
