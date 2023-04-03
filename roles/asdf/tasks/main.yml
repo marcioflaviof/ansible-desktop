@@ -9,3 +9,5 @@
 - include_tasks: nodejs.yml
 
 - include_tasks: ruby.yml
+
+- include_tasks: lua.yml
