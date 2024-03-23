@@ -30,7 +30,7 @@
 
   roles:
     - { role: core, tags: core }
-    - { role: git-setup, tags: git }
+    - { role: git-setup, tags: git-personal }
     - { role: fish, tags: fish }
     - { role: stow, tags: stow }
     - { role: asdf, tags: asdf }

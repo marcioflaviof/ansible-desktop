@@ -1,6 +1,16 @@
-- name: Install microsoft edge
+- name: Install packages
   become_user: aur_builder
   kewlfft.aur.aur:
     use: yay
     name:
-      - microsoft-edge-stable-bin
+      [
+        freedownloadmanager,
+        webcord,
+        vlc,
+        upower,
+        bluez-utils,
+        mysql,
+        autojump,
+        jq,
+        google-chrome,
+      ]
